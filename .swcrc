@@ -1,0 +1,23 @@
+{
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "decorators": true,
+            "dynamicImport": true
+        },
+        "baseUrl": "./",
+        "paths": {
+            "@configloader": [
+                "src/config/configloader.ts"
+            ],
+            "@env-schema": [
+                "src/config/env.validations.ts"
+            ]
+        },
+        "target": "es2022",
+        "keepClassNames": true
+    },
+    "module": {
+        "type": "commonjs"
+    }
+}

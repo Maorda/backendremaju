@@ -14,6 +14,14 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@configloader": [
+        "src/config/configloader.ts"
+      ],
+      "@env-schema": [
+        "src/config/env.validations.ts"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
