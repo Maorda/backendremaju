@@ -4,8 +4,9 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SheetOdmModule } from '@dantesito/spreadsheet-odm';
 import { AdelantoEntity, ObreroEntity } from './entities';
-import { configLoader } from 'src/config/configloader';
-import { envValidationSchema } from 'src/config/env.validations';
+import { configLoader } from '@configloader';
+import { envValidationSchema } from '@env-schema';
+import { CronogramaEntity, InmuebleEntity, RemateEntity } from './expediente.remaju.entity';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { envValidationSchema } from 'src/config/env.validations';
       }),
     }),
 
-    SheetOdmModule.forFeature([ObreroEntity, AdelantoEntity]),
+    SheetOdmModule.forFeature([ObreroEntity, AdelantoEntity, RemateEntity, InmuebleEntity, CronogramaEntity]),
   ],
   controllers: [AppController],
   providers: [AppService],
