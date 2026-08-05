@@ -7,6 +7,7 @@ import { AdelantoEntity, ObreroEntity } from './entities';
 import { configLoader } from '@configloader';
 import { envValidationSchema } from '@env-schema';
 import { CronogramaEntity, InmuebleEntity, RemateEntity } from './expediente.remaju.entity';
+import { RemateJudicialService } from './remates.service';
 
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import { CronogramaEntity, InmuebleEntity, RemateEntity } from './expediente.rem
     SheetOdmModule.forFeature([ObreroEntity, AdelantoEntity, RemateEntity, InmuebleEntity, CronogramaEntity]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, RemateJudicialService],
 })
 export class AppModule { }
