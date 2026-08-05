@@ -11,4 +11,9 @@ export class AppController {
     return await this.remateService.registrarExpediente(dto);
   }
 
+  @Get('hola')
+  async obtenerRematesJudicial() {
+    return "hola mundo v1.0";
+  }
+
 }
