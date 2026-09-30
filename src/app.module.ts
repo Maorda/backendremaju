@@ -30,7 +30,10 @@ import { RemateJudicialService } from './remates.service';
       }),
     }),
 
-    SheetOdmModule.forFeature([ObreroEntity, AdelantoEntity, RemateEntity, InmuebleEntity, CronogramaEntity]),
+    SheetOdmModule.forFeature([
+      ObreroEntity,
+      AdelantoEntity,
+      RemateEntity, InmuebleEntity, CronogramaEntity]),
   ],
   controllers: [AppController],
   providers: [AppService, RemateJudicialService],

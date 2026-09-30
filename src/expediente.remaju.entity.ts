@@ -37,13 +37,22 @@ export class CronogramaDto {
     @IsOptional()
     idRemate?: string;
 
-    // Fase 1: Publicación
-    @IsString() @IsOptional() publicacionInicio: string;
-    @IsString() @IsOptional() publicacionFin: string;
+    @IsString()
+    @IsOptional()
+    publicacionInicio: string;
+
+    @IsString()
+    @IsOptional()
+    publicacionFin: string;
 
     // Fase 2: Ofertas
-    @IsString() @IsOptional() ofertasInicio: string;
-    @IsString() @IsOptional() ofertasFin: string;
+    @IsString()
+    @IsOptional()
+    ofertasInicio: string;
+
+    @IsString()
+    @IsOptional()
+    ofertasFin: string;
 
     // Fase 3: Validación de Inscripción (NUEVO)
     @IsString() @IsOptional() validacionInscripcionInicio: string;
@@ -243,6 +252,7 @@ export class RemateEntity {
     @Column({ name: 'ARCHIVO_URL', type: 'string' })
     archivoUrl: string;
 
+    // Relaciones hacia las entidades hijas
     @SubCollection(() => InmuebleEntity, { joinColumn: 'idRemate' })
     inmuebles: InmuebleEntity[];
 
@@ -302,12 +312,14 @@ export class CronogramaEntity {
     @Column({ name: 'ID_REMATE', required: true, index: true })
     idRemate: string;
 
+    // Fase 1: Publicación e Inscripción
     @Column({ name: 'PUB_INSCRIPCION_INICIO', type: 'string' })
     publicacionInicio: string;
 
     @Column({ name: 'PUB_INSCRIPCION_FIN', type: 'string' })
     publicacionFin: string;
 
+    // Fase 2: Presentación de Ofertas
     @Column({ name: 'PRES_OFERTAS_INICIO', type: 'string' })
     ofertasInicio: string;
 
@@ -332,4 +344,4 @@ export class CronogramaEntity {
 
     @Column({ name: 'VAL_SALDO_FIN', type: 'string' })
     validacionSaldoFin: string;
-}   
+}
