@@ -79,6 +79,14 @@ export class InmueblesDto {
 
     @IsString()
     @IsOptional()
+    direccion: string; // <-- AÑADIDO
+
+    @IsString()
+    @IsOptional()
+    enlaceMapa: string; // <-- AÑADIDO (generado en Python)
+
+    @IsString()
+    @IsOptional()
     partidaRegistral: string;
 
     @IsString()
@@ -102,6 +110,14 @@ export class RemateDto {
     @IsString()
     @IsOptional()
     expediente: string;
+
+    @IsString()
+    @IsOptional()
+    distritoJudicial: string; // <-- AÑADIDO
+
+    @IsString()
+    @IsOptional()
+    instancia: string; // <-- AÑADIDO
 
     @IsString()
     @IsOptional()
@@ -142,6 +158,10 @@ export class RemateDto {
     @IsString()
     @IsOptional()
     fechaResolucion: string;
+
+    @IsString()
+    @IsOptional()
+    tipoCambio: string; // <-- AÑADIDO
 
     @IsString()
     @IsOptional()
@@ -179,6 +199,12 @@ export class RemateEntity {
     @Column({ name: 'EXPEDIENTE', required: true, index: true })
     expediente: string;
 
+    @Column({ name: 'DISTRITO_JUDICIAL', type: 'string' })
+    distritoJudicial: string;
+
+    @Column({ name: 'INSTANCIA', type: 'string' })
+    instancia: string;
+
     @Column({ name: 'CONVOCATORIA', type: 'string' })
     convocatoria: string;
 
@@ -209,10 +235,12 @@ export class RemateEntity {
     @Column({ name: 'FECHA_RESOLUCION', type: 'string' })
     fechaResolucion: string;
 
+    @Column({ name: 'TIPO_CAMBIO', type: 'string' })
+    tipoCambio: string;
+
     @Column({ name: 'ARCHIVO_URL', type: 'string' })
     archivoUrl: string;
 
-    // Relaciones hacia las entidades hijas
     @SubCollection(() => InmuebleEntity, { joinColumn: 'idRemate' })
     inmuebles: InmuebleEntity[];
 
@@ -240,6 +268,12 @@ export class InmuebleEntity {
 
     @Column({ name: 'DISTRITO', type: 'string' })
     distrito: string;
+
+    @Column({ name: 'DIRECCION', type: 'string' })
+    direccion: string;
+
+    @Column({ name: 'ENLACE_MAPA', type: 'string' })
+    enlaceMapa: string;
 
     @Column({ name: 'PARTIDA_REGISTRAL', type: 'string' })
     partidaRegistral: string;
