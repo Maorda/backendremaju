@@ -8,7 +8,13 @@ export class AppController {
 
   @Post('registrar-remate-judicial')
   async upsertRemate(@Body() dto: ExpedienteRemateDto) {
+    console.log('[NESTJS CONTROLLER] DTO recibido desde Python:', JSON.stringify(dto, null, 2))
     return await this.remateService.registrarExpediente(dto);
+  }
+
+  @Get('hola')
+  async obtenerRematesJudicial() {
+    return "hola mundo v1.0";
   }
 
 }
