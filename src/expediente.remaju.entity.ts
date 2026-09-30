@@ -38,22 +38,24 @@ export class CronogramaDto {
     idRemate?: string;
 
     // Fase 1: Publicación
-    @IsString()
-    @IsOptional()
-    publicacionInicio: string;
-
-    @IsString()
-    @IsOptional()
-    publicacionFin: string;
+    @IsString() @IsOptional() publicacionInicio: string;
+    @IsString() @IsOptional() publicacionFin: string;
 
     // Fase 2: Ofertas
-    @IsString()
-    @IsOptional()
-    ofertasInicio: string;
+    @IsString() @IsOptional() ofertasInicio: string;
+    @IsString() @IsOptional() ofertasFin: string;
 
-    @IsString()
-    @IsOptional()
-    ofertasFin: string;
+    // Fase 3: Validación de Inscripción (NUEVO)
+    @IsString() @IsOptional() validacionInscripcionInicio: string;
+    @IsString() @IsOptional() validacionInscripcionFin: string;
+
+    // Fase 4: Pago de Saldo (NUEVO)
+    @IsString() @IsOptional() pagoSaldoInicio: string;
+    @IsString() @IsOptional() pagoSaldoFin: string;
+
+    // Fase 5: Validación de Saldo (NUEVO)
+    @IsString() @IsOptional() validacionSaldoInicio: string;
+    @IsString() @IsOptional() validacionSaldoFin: string;
 }
 
 export class InmueblesDto {
@@ -300,17 +302,34 @@ export class CronogramaEntity {
     @Column({ name: 'ID_REMATE', required: true, index: true })
     idRemate: string;
 
-    // Fase 1: Publicación e Inscripción
     @Column({ name: 'PUB_INSCRIPCION_INICIO', type: 'string' })
     publicacionInicio: string;
 
     @Column({ name: 'PUB_INSCRIPCION_FIN', type: 'string' })
     publicacionFin: string;
 
-    // Fase 2: Presentación de Ofertas
     @Column({ name: 'PRES_OFERTAS_INICIO', type: 'string' })
     ofertasInicio: string;
 
     @Column({ name: 'PRES_OFERTAS_FIN', type: 'string' })
     ofertasFin: string;
+
+    // Nuevas columnas en la base de datos
+    @Column({ name: 'VAL_INSCRIPCION_INICIO', type: 'string' })
+    validacionInscripcionInicio: string;
+
+    @Column({ name: 'VAL_INSCRIPCION_FIN', type: 'string' })
+    validacionInscripcionFin: string;
+
+    @Column({ name: 'PAGO_SALDO_INICIO', type: 'string' })
+    pagoSaldoInicio: string;
+
+    @Column({ name: 'PAGO_SALDO_FIN', type: 'string' })
+    pagoSaldoFin: string;
+
+    @Column({ name: 'VAL_SALDO_INICIO', type: 'string' })
+    validacionSaldoInicio: string;
+
+    @Column({ name: 'VAL_SALDO_FIN', type: 'string' })
+    validacionSaldoFin: string;
 }   
