@@ -260,10 +260,10 @@ export class RemateEntity {
     @Column({ name: 'ARCHIVO_URL', type: 'string' })
     archivoUrl: string;
 
-    @Column({ name: 'DEMANDANTES', type: 'string' })
+    @Column({ name: 'DEMANDANTES', type: 'array' })
     demandantes: string[];
 
-    @Column({ name: 'DEMANDADOS', type: 'string' })
+    @Column({ name: 'DEMANDADOS', type: 'array' })
     demandados: string[];
 
     // Relaciones hacia las entidades hijas
