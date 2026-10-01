@@ -177,6 +177,14 @@ export class RemateDto {
     @IsString()
     @IsOptional()
     archivoUrl: string;
+
+    @IsArray()
+    @IsOptional()
+    demandantes: string[];
+
+    @IsArray()
+    @IsOptional()
+    demandados: string[];
 }
 
 export class ExpedienteRemateDto {
@@ -251,6 +259,12 @@ export class RemateEntity {
 
     @Column({ name: 'ARCHIVO_URL', type: 'string' })
     archivoUrl: string;
+
+    @Column({ name: 'DEMANDANTES', type: 'string' })
+    demandantes: string[];
+
+    @Column({ name: 'DEMANDADOS', type: 'string' })
+    demandados: string[];
 
     // Relaciones hacia las entidades hijas
     @SubCollection(() => InmuebleEntity, { joinColumn: 'idRemate' })
